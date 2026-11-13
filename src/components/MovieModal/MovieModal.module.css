@@ -1,0 +1,45 @@
+.modal {
+  width: min(100% - 2rem, 38rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 1px solid #654f7b;
+  border-radius: 1rem;
+  background: #241d2c;
+  color: #fbf4ff;
+}
+
+.modal::backdrop {
+  background: #100a18cc;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.content {
+  display: grid;
+  gap: 0.75rem;
+  padding: 3rem 1.25rem 1.25rem;
+  line-height: 1.5;
+}
+
+.image + .content {
+  padding-top: 1.25rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #c8a8e6;
+  border-radius: 50%;
+  background: #241d2c;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
