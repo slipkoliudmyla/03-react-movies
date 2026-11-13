@@ -1,5 +1,6 @@
-import css from './MovieGrid.module.css';
+import type { KeyboardEvent } from 'react';
 import type { Movie } from '../../types/movie';
+import css from './MovieGrid.module.css';
 
 interface MovieGridProps {
   onSelect: (movie: Movie) => void;
@@ -7,27 +8,37 @@ interface MovieGridProps {
 }
 
 function MovieGrid({ onSelect, movies }: MovieGridProps) {
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>, movie: Movie) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onSelect(movie);
+    }
+  }
+
   return (
     <ul className={css.grid} aria-label="Search results">
       {movies.map((movie) => (
         <li key={movie.id}>
-          <button
+          <div
             className={css.card}
-            type="button"
+            role="button"
+            tabIndex={0}
+            aria-label={movie.title}
             onClick={() => onSelect(movie)}
+            onKeyDown={(event) => handleKeyDown(event, movie)}
           >
             {movie.poster_path ? (
               <img
                 className={css.image}
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt=""
+                alt={movie.title}
                 loading="lazy"
               />
             ) : (
-              <span className={css.placeholder}>No poster available</span>
+              <p className={css.image}>No poster available</p>
             )}
-            <span className={css.title}>{movie.title}</span>
-          </button>
+            <h2 className={css.title}>{movie.title}</h2>
+          </div>
         </li>
       ))}
     </ul>

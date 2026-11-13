@@ -46,7 +46,7 @@ function App() {
 
   return (
     <main className={css.app}>
-      <SearchBar onSubmit={handleMoviesSearch} isLoading={loading} />
+      <SearchBar onSubmit={handleMoviesSearch} />
       {movies.length > 0 && (
         <MovieGrid onSelect={handleMovieClick} movies={movies} />
       )}

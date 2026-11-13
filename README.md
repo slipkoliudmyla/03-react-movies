@@ -14,4 +14,6 @@
 Для перевірки запусти `npm run lint` і `npm run build`. На Vercel задай `TMDB_API_KEY`
 для Production. Запит до TMDB виконує серверна функція `/api/movies`.
 
+Стилі компонентів із [репозиторію GoIT](https://github.com/goitacademy/react-movies-styles).
+
 Адаптовано з [03-react-movies Софії Дорош](https://github.com/sofiiadorosh/03-react-movies).

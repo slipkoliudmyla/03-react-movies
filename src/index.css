@@ -12,8 +12,6 @@ body {
   min-height: 100dvh;
   margin: 0;
   font-family: system-ui, sans-serif;
-  color: #fbf4ff;
-  background: #18131f;
   display: flex;
   flex-direction: column;
 }
